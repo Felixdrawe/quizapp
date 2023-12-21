@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0; /* CSS reset - remove default padding */
+  background: linear-gradient(90deg, orange, cyan) !important;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+
+.card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  min-height: 100vh;
+  margin-top: -90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn.btn-primary {
+  background-color: black;
+  border: none;
+  transition: transform 300ms;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.btn.btn-primary:hover {
+  background-color: black;
+  border: none;
+  transform: scale(1.1);
+}
