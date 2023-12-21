@@ -62,7 +62,7 @@ const questions = [
     answer2: 'Brazil',
     answer3: 'France',
     answer4: 'Argentina',
-    correct: 'answer4',
+    correct: 'answer3',
   },
 ];
 
