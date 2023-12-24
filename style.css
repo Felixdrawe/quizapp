@@ -14,8 +14,13 @@ nav {
 .card {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   max-width: 694px;
+}
 
-
+.card img {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
 }
 
 .container {
@@ -48,4 +53,17 @@ nav {
   background-color: black;
   border: none;
   transform: scale(1.1);
+}
+
+.quiz-answer {
+  transition: background-color 300ms;
+}
+
+.quiz-answer:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.bg-success,
+.bg-danger {
+  color: white !important;
 }
