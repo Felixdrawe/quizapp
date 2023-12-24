@@ -11,17 +11,21 @@ nav {
   margin-top: 30px;
 }
 
-
 .card {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 694px;
+
+
 }
 
 .container {
   min-height: 100vh;
-  margin-top: -90px;
+  /* margin-top: -90px; */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: top;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .question-footer {
