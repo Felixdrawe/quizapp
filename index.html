@@ -18,18 +18,29 @@
 
 </head>
 
-<body onload="init()">
-
-    <!--     
-    <nav>
-        <h1> <strong>Quizapp</strong></h1>
-    </nav> -->
-
-
-    <div class="container">
+<body onload="init()" id="body-bg">
+    <div class="container" id="quiz-container">
         <div class="card">
-            <img src="img/logo2.png" class="card-img-top">
-            <div class="card-body">
+            <img src="" class="card-img-top" id="game-image">
+
+            <img class="final" src="img/final.png" id="end-image" style="display: none;">
+
+            
+
+
+            <div class="card-body" id="endScreen" style="display: none;">
+                <div>
+                    <h2 class="text-center">Quiz beendet!</h2>
+                </div>
+                <div class="final-img"> 
+                </div>
+
+                <div class="text-center">Du hast <b id="correct-counter">0</b> von <b id="question-number-end" >0</b> Fragen richtig beantwortet</div>
+     
+
+            </div>
+
+            <div class="card-body" id="questionBody">
 
                 <h5 class="card-title" id="question">Frage</h5>
 
@@ -56,10 +67,11 @@
 
                 <div class="question-footer">
                     <div>
-                        <b id="question-counter">1</b> von <b id="question-number">5</b> Fragen
+                        <b id="question-counter">0</b> von <b id="question-number">0</b> Fragen
                     </div>
 
-                    <button onclick="nextQuestion()" id="next-btn" disabled type="button" class="btn btn-primary ">Nächste Frage</button>
+                    <button onclick="nextQuestion()" id="next-btn" disabled type="button"
+                        class="btn btn-primary ">Nächste Frage</button>
                 </div>
             </div>
         </div>

@@ -1,110 +1,144 @@
 const questions = [
   {
-    question: 'Who invented HTML?',
-    answer1: 'Tim Berners-Lee',
-    answer2: 'Brendan Eich',
-    answer3: 'Douglas Crockford',
-    answer4: 'Sheryl Sandberg',
-    correct: 'answer1',
-  },
-  {
-    question: 'What does CSS stand for?',
-    answer1: 'Cascading Style Sheets',
-    answer2: 'Computer Science Society',
-    answer3: 'Creative Style Solutions',
-    answer4: 'Coding Style Standards',
-    correct: 'answer1',
-  },
-  {
-    question:
-      "Which programming language is known as the 'mother of all languages'?",
-    answer1: 'Java',
-    answer2: 'C++',
-    answer3: 'Python',
-    answer4: 'Assembly',
-    correct: 'answer4',
-  },
-  {
-    question: 'What is the capital of France?',
-    answer1: 'Paris',
-    answer2: 'London',
-    answer3: 'Berlin',
-    answer4: 'Rome',
-    correct: 'answer1',
-  },
-  {
-    question: 'What is the largest planet in our solar system?',
-    answer1: 'Mars',
-    answer2: 'Jupiter',
-    answer3: 'Saturn',
-    answer4: 'Neptune',
+    question: 'Wie viele Schafe gibt es in Neuseeland im Verhältnis zu Einwohnern?',
+    answer1: '10 zu 1',
+    answer2: '22 zu 1',
+    answer3: '5 zu 1',
+    answer4: '15 zu 1',
     correct: 'answer2',
+    img: '/img/sheeps.png',
+    bgColor: 'linear-gradient(0deg, #647A6A, #DAEDF0) ',
   },
+
   {
-    question: 'Who is the CEO of Tesla?',
-    answer1: 'Elon Musk',
-    answer2: 'Jeff Bezos',
-    answer3: 'Mark Zuckerberg',
-    answer4: 'Tim Cook',
-    correct: 'answer1',
-  },
-  {
-    question: 'What is the chemical symbol for gold?',
-    answer1: 'Au',
-    answer2: 'Ag',
-    answer3: 'Cu',
-    answer4: 'Fe',
-    correct: 'answer1',
-  },
-  {
-    question: 'Which country won the FIFA World Cup in 2018?',
-    answer1: 'Germany',
-    answer2: 'Brazil',
-    answer3: 'France',
-    answer4: 'Argentina',
+    question: 'In welchem Land gibt es einen Wettbewerb, bei dem Käserollen den Hügel hinuntergerollt werden?',
+    answer1: 'Schweiz',
+    answer2: 'Niederlande',
+    answer3: 'England',
+    answer4: 'Frankreich',
     correct: 'answer3',
+    img: '/img/cheese.png',
+    bgColor: 'linear-gradient(90deg, orange, cyan)',
   },
+  {
+    question: 'In welchem Land dürfen Meerschweinchen nicht alleine gehalten werden?',
+    answer1: 'Deutschland',
+    answer2: 'Schweiz',
+    answer3: 'Australien',
+    answer4: 'Kanada',
+    correct: 'answer2',
+    img: '/img/guineapig.png',
+    bgColor: 'linear-gradient(0deg, #DDBC94, #E8EDED)',
+  },
+
+
+  {
+    question: 'Welches Land hat die meisten Zeitzonen?',
+    answer1: 'Russland',
+    answer2: 'USA',
+    answer3: 'Frankreich',
+    answer4: 'China',
+    correct: 'answer3',
+    img: '/img/timezones.png',
+    bgColor: 'linear-gradient(90deg, orange, cyan)',
+  },
+
+
+  {
+    question: 'In welchem Land gibt es einen Wettbewerb, bei dem Menschen Frau Holle spielen und Betten ausschütteln?',
+    answer1: 'Deutschland',
+    answer2: 'Österreich',
+    answer3: 'Schweiz',
+    answer4: 'Schweden',
+    correct: 'answer1',
+    img: '/img/holle.png',
+    bgColor: 'linear-gradient(90deg, orange, cyan)',
+  },
+
+
+  {
+    question: 'Welches Land hat eine Nationalmannschaft für Quidditch?',
+    answer1: 'Australien',
+    answer2: 'Großbritannien',
+    answer3: 'USA',
+    answer4: 'Alle genannten',
+    correct: 'answer4',
+    img: '/img/quidditch.png',
+    bgColor: 'linear-gradient(90deg, orange, cyan)',
+  },
+
+
 ];
 
 let currentQuestion = 0;
+let correctCounter = 0;
+let answeredCurrentQuestion = false; // Variable to track if user has answered the current question
 
 function init() {
   document.getElementById('question-number').innerHTML = questions.length;
-  
-
   showQuestion();
 }
 
 function showQuestion() {
+  if (currentQuestion >= questions.length) {
+    showEndScreen();
+  } else {
+    showNextQuestion();
+  }
+}
+
+function showEndScreen() {
+  document.body.style.background = ''; // Set it to the default background color
+  document.getElementById('endScreen').style = '';
+  document.getElementById('end-image').style = '';
+  document.getElementById('questionBody').style = 'display: none';
+  document.getElementById('game-image').style = 'display: none';
+  document.getElementById('correct-counter').innerHTML = correctCounter;
+  document.getElementById('question-number-end').innerHTML = questions.length;
+}
+
+function showNextQuestion() {
   const question = questions[currentQuestion];
+  document.getElementById('question-counter').innerHTML = currentQuestion + 1;
+  document.querySelector('.card-img-top').src = question.img;
   document.getElementById('question').innerHTML = question.question;
   document.getElementById('answer1').innerHTML = question.answer1;
   document.getElementById('answer2').innerHTML = question.answer2;
   document.getElementById('answer3').innerHTML = question.answer3;
   document.getElementById('answer4').innerHTML = question.answer4;
+  document.body.style.background = question.bgColor;
 }
 
+
+
 function answer(answer_selection) {
+  if (answeredCurrentQuestion) {
+    return; // If user has already answered, return early
+  }
+
   const question = questions[currentQuestion];
   const rightanswer = question.correct;
+
   if (rightanswer === answer_selection) {
     document
       .getElementById(answer_selection)
       .parentNode.classList.add('bg-success');
+    correctCounter++;
   } else {
     document
       .getElementById(answer_selection)
       .parentNode.classList.add('bg-danger');
     document.getElementById(rightanswer).parentNode.classList.add('bg-success');
   }
+
+  answeredCurrentQuestion = true; // Mark the current question as answered
   document.getElementById('next-btn').disabled = false;
 }
 
 function nextQuestion() {
   currentQuestion++;
+  answeredCurrentQuestion = false; // Reset for the next question
   document.getElementById('next-btn').disabled = true;
-  document.getElementById('question-counter').innerHTML = currentQuestion + 1;
- 
 
   for (let i = 1; i <= 4; i++) {
     document
@@ -113,7 +147,6 @@ function nextQuestion() {
     document
       .getElementById('answer' + i)
       .parentNode.classList.remove('bg-danger');
-    
   }
 
   showQuestion();

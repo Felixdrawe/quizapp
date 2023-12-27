@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0; /* CSS reset - remove default padding */
-  background: linear-gradient(90deg, orange, cyan) !important;
+  background: linear-gradient(180deg, yellow, #054ee1) ;
 }
 
 nav {
@@ -17,10 +17,10 @@ nav {
 }
 
 .card img {
-  width: 60%;
-  height: auto;
-  margin: 0 auto;
-  object-fit: cover;
+  /* width: 60%; */
+  /* height: auto;
+  margin: 0 auto; */
+  /* object-fit: cover; */
 }
 
 .container {
@@ -45,9 +45,18 @@ nav {
   background-color: black;
   border: none;
   transition: transform 300ms;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  /* margin-right: 20px;
+  margin-bottom: 20px; */
 }
+
+.btn.btn-primary:disabled {
+  background-color: grey; /* Change the background color to grey when disabled */
+/* Change the cursor to not-allowed when disabled */
+  color: white; /* Change text color to white when disabled */
+}
+
+/* Rest of your CSS code remains the same */
+
 
 .btn.btn-primary:hover {
   background-color: black;
@@ -66,4 +75,23 @@ nav {
 .bg-success,
 .bg-danger {
   color: white !important;
+}
+
+
+.final-img{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
+
+.final{
+  width: 100.5%;
+  margin: -1px 0px 0px -1px;
+  padding: 0px 0px 0px 0px;
+
+}
+
+.text-center{
+  text-align: center;
 }
