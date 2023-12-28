@@ -95,3 +95,9 @@ nav {
 .text-center{
   text-align: center;
 }
+
+.progress {
+  border-radius: 0 !important;
+  background-color: grey !important;
+  
+}

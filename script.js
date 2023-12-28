@@ -98,7 +98,11 @@ function showEndScreen() {
 }
 
 function showNextQuestion() {
+  let percentage = ((currentQuestion + 1) / questions.length) * 100;
+  percentage = Math.round(percentage);
   const question = questions[currentQuestion];
+  document.getElementById('progress-bar').innerHTML = `${percentage}%`;
+  document.getElementById('progress-bar').style = `width: ${percentage}%`;
   document.getElementById('question-counter').innerHTML = currentQuestion + 1;
   document.querySelector('.card-img-top').src = question.img;
   document.getElementById('question').innerHTML = question.question;
