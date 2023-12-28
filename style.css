@@ -1,9 +1,8 @@
 body {
   margin: 0;
-  padding: 0; /* CSS reset - remove default padding */
-  background: linear-gradient(180deg, yellow, #054ee1) ;
+  padding: 0;
+  background: linear-gradient(180deg, yellow, #054ee1);
 }
-
 
 nav {
   display: flex;
@@ -19,7 +18,6 @@ nav {
 
 .container {
   min-height: 100vh;
-  /* margin-top: -90px; */
   display: flex;
   justify-content: center;
   align-items: top;
@@ -39,14 +37,11 @@ nav {
   background-color: black;
   border: none;
   transition: transform 300ms;
-  /* margin-right: 20px;
-  margin-bottom: 20px; */
 }
 
 .btn.btn-primary:disabled {
-  background-color: grey; /* Change the background color to grey when disabled */
-/* Change the cursor to not-allowed when disabled */
-  color: white; /* Change text color to white when disabled */
+  background-color: grey;
+  color: white;
 }
 
 .btn.btn-primary:hover {
@@ -63,36 +58,34 @@ nav {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .bg-success,
 .bg-danger {
   color: white !important;
 }
 
-
-.final-img{
+.final-img {
   display: flex;
   align-items: center;
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-.final{
+.final {
   width: 100.5%;
   margin: -1px 0px 0px -1px;
   padding: 0px 0px 0px 0px;
-
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
 .progress {
   border-radius: 0 !important;
   background-color: grey !important;
-  
 }
 
-.buttonrow{
+.buttonrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +93,6 @@ nav {
 }
 
 @media (max-width: 500px) {
-
   .card img {
     width: auto;
     height: 20%;
@@ -121,3 +113,31 @@ nav {
     flex-direction: column;
     align-items: center;
   }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .progress-bar {
+    width: 100%;
+  }
+
+  #questionBody .card-body {
+    max-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #questionBody .card-title {
+    font-size: 16px;
+  }
+
+  #next-btn {
+    font-size: 14px;
+  }
+
+  #questionBody .question-counter {
+    font-size: 14px;
+  }
+}

@@ -2,11 +2,11 @@ const questions = [
   {
     question:
       'Wie viele Schafe gibt es in Neuseeland im Verhältnis zu Einwohnern?',
-    answer1: '10 zu 1',
-    answer2: '22 zu 1',
+    answer1: '1 zu 1',
+    answer2: '2 zu 1',
     answer3: '5 zu 1',
-    answer4: '15 zu 1',
-    correct: 'answer2',
+    answer4: '10 zu 1',
+    correct: 'answer3',
     img: './img/sheeps.jpg',
     bgColor: 'linear-gradient(0deg, #647A6A, #DAEDF0) ',
   },
