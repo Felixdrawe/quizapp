@@ -1,6 +1,7 @@
 const questions = [
   {
-    question: 'Wie viele Schafe gibt es in Neuseeland im Verhältnis zu Einwohnern?',
+    question:
+      'Wie viele Schafe gibt es in Neuseeland im Verhältnis zu Einwohnern?',
     answer1: '10 zu 1',
     answer2: '22 zu 1',
     answer3: '5 zu 1',
@@ -11,7 +12,8 @@ const questions = [
   },
 
   {
-    question: 'In welchem Land gibt es einen Wettbewerb, bei dem Käserollen den Hügel hinuntergerollt werden?',
+    question:
+      'In welchem Land gibt es einen Wettbewerb, bei dem Käserollen den Hügel hinuntergerollt werden?',
     answer1: 'Schweiz',
     answer2: 'Niederlande',
     answer3: 'England',
@@ -21,7 +23,8 @@ const questions = [
     bgColor: 'linear-gradient(0deg, #938630, #4C6728)',
   },
   {
-    question: 'In welchem Land dürfen Meerschweinchen nicht alleine gehalten werden?',
+    question:
+      'In welchem Land dürfen Meerschweinchen nicht alleine gehalten werden?',
     answer1: 'Deutschland',
     answer2: 'Schweiz',
     answer3: 'Australien',
@@ -30,7 +33,6 @@ const questions = [
     img: '/img/guineapig.png',
     bgColor: 'linear-gradient(0deg, #DDBC94, #E8EDED)',
   },
-
 
   {
     question: 'Welches Land hat die meisten Zeitzonen?',
@@ -43,9 +45,9 @@ const questions = [
     bgColor: 'linear-gradient(-180deg, #9DC3CF, #052B50)',
   },
 
-
   {
-    question: 'In welchem Land gibt es einen Wettbewerb, bei dem Menschen Frau Holle spielen und Betten ausschütteln?',
+    question:
+      'In welchem Land gibt es einen Wettbewerb, bei dem Menschen Frau Holle spielen und Betten ausschütteln?',
     answer1: 'Deutschland',
     answer2: 'Österreich',
     answer3: 'Schweiz',
@@ -54,7 +56,6 @@ const questions = [
     img: '/img/holle.png',
     bgColor: 'linear-gradient(-180deg, #FFF6D3, #BC7536)',
   },
-
 
   {
     question: 'Welches Land hat eine Nationalmannschaft für Quidditch?',
@@ -66,12 +67,12 @@ const questions = [
     img: '/img/quidditch.png',
     bgColor: 'linear-gradient(-180deg, #73B5D3, #559F5F)',
   },
-
-
 ];
 
 let currentQuestion = 0;
 let correctCounter = 0;
+let success = new Audio('audio/success.wav');
+let fail = new Audio('audio/fail.wav');
 let answeredCurrentQuestion = false; // Variable to track if user has answered the current question
 
 function init() {
@@ -113,8 +114,6 @@ function showNextQuestion() {
   document.body.style.background = question.bgColor;
 }
 
-
-
 function answer(answer_selection) {
   if (answeredCurrentQuestion) {
     return; // If user has already answered, return early
@@ -127,11 +126,13 @@ function answer(answer_selection) {
     document
       .getElementById(answer_selection)
       .parentNode.classList.add('bg-success');
+      success.play();
     correctCounter++;
   } else {
     document
       .getElementById(answer_selection)
       .parentNode.classList.add('bg-danger');
+      fail.play();
     document.getElementById(rightanswer).parentNode.classList.add('bg-success');
   }
 
@@ -154,4 +155,15 @@ function nextQuestion() {
   }
 
   showQuestion();
+}
+
+function restart() {
+  currentQuestion = 0;
+  correctCounter = 0;
+  answeredCurrentQuestion = false;
+  document.getElementById('endScreen').style = 'display: none';
+  document.getElementById('end-image').style = 'display: none';
+  document.getElementById('questionBody').style = '';
+  document.getElementById('game-image').style = '';
+  init();
 }

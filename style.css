@@ -101,3 +101,40 @@ nav {
   background-color: grey !important;
   
 }
+
+.buttonrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 500px) {
+
+/* .container {
+  margin-top: -50px;
+  
+
+  /* margin-bottom: -50px; */
+} */
+
+
+
+
+  .question-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn.btn-primary {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .buttonrow {
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 20px; */
+  }
+
+
