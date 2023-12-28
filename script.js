@@ -73,6 +73,7 @@ let currentQuestion = 0;
 let correctCounter = 0;
 let success = new Audio('./audio/success.wav');
 let fail = new Audio('./audio/fail.wav');
+let applause = new Audio('./audio/cheer.wav');
 let answeredCurrentQuestion = false; // Variable to track if user has answered the current question
 
 function init() {
@@ -91,7 +92,6 @@ function showQuestion() {
   }
 }
 
-
 function gameIsOver() {
   return currentQuestion >= questions.length;
 }
@@ -104,19 +104,19 @@ function showEndScreen() {
   document.getElementById('game-image').style = 'display: none';
   document.getElementById('correct-counter').innerHTML = correctCounter;
   document.getElementById('question-number-end').innerHTML = questions.length;
+  applause.play();
 }
 
 function updateProgressBar() {
   let percentage = (currentQuestion / questions.length) * 100;
-  percentage = Math.min(100, Math.round(percentage)); 
+  percentage = Math.min(100, Math.round(percentage));
   document.getElementById('progress-bar').innerHTML = `${percentage}%`;
   document.getElementById('progress-bar').style.width = `${percentage}%`;
 
   if (gameIsOver()) {
-    document.getElementById('progress-bar').innerHTML = '100%'; 
+    document.getElementById('progress-bar').innerHTML = '100%';
   }
 }
-
 
 function showNextQuestion() {
   let question = questions[currentQuestion];
