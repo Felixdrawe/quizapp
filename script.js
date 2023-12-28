@@ -77,17 +77,20 @@ let answeredCurrentQuestion = false; // Variable to track if user has answered t
 
 function init() {
   document.getElementById('question-number').innerHTML = questions.length;
+  updateProgressBar();
   showQuestion();
 }
 
 function showQuestion() {
   if (gameIsOver()) {
     showEndScreen();
+    updateProgressBar();
   } else {
     showNextQuestion();
     updateProgressBar();
   }
 }
+
 
 function gameIsOver() {
   return currentQuestion >= questions.length;
@@ -104,11 +107,16 @@ function showEndScreen() {
 }
 
 function updateProgressBar() {
-  let percentage = ((currentQuestion + 1) / questions.length) * 100;
-  percentage = Math.round(percentage);
+  let percentage = (currentQuestion / questions.length) * 100;
+  percentage = Math.min(100, Math.round(percentage)); 
   document.getElementById('progress-bar').innerHTML = `${percentage}%`;
-  document.getElementById('progress-bar').style = `width: ${percentage}%`;
+  document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+  if (gameIsOver()) {
+    document.getElementById('progress-bar').innerHTML = '100%'; 
+  }
 }
+
 
 function showNextQuestion() {
   let question = questions[currentQuestion];
