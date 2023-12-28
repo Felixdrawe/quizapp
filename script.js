@@ -81,11 +81,16 @@ function init() {
 }
 
 function showQuestion() {
-  if (currentQuestion >= questions.length) {
+  if (gameIsOver()) {
     showEndScreen();
   } else {
     showNextQuestion();
+    updateProgressBar();
   }
+}
+
+function gameIsOver() {
+  return currentQuestion >= questions.length;
 }
 
 function showEndScreen() {
@@ -98,12 +103,15 @@ function showEndScreen() {
   document.getElementById('question-number-end').innerHTML = questions.length;
 }
 
-function showNextQuestion() {
+function updateProgressBar() {
   let percentage = ((currentQuestion + 1) / questions.length) * 100;
   percentage = Math.round(percentage);
-  const question = questions[currentQuestion];
   document.getElementById('progress-bar').innerHTML = `${percentage}%`;
   document.getElementById('progress-bar').style = `width: ${percentage}%`;
+}
+
+function showNextQuestion() {
+  let question = questions[currentQuestion];
   document.getElementById('question-counter').innerHTML = currentQuestion + 1;
   document.querySelector('.card-img-top').src = question.img;
   document.getElementById('question').innerHTML = question.question;
@@ -115,36 +123,37 @@ function showNextQuestion() {
 }
 
 function answer(answer_selection) {
-  if (answeredCurrentQuestion) {
-    return; // If user has already answered, return early
-  }
-
   const question = questions[currentQuestion];
   const rightanswer = question.correct;
+  if (answeredCurrentQuestion) {
+    return;
+  } else {
+    checkAnswer(answer_selection, rightanswer);
+  }
+}
 
+function checkAnswer(answer_selection, rightanswer) {
   if (rightanswer === answer_selection) {
     document
       .getElementById(answer_selection)
       .parentNode.classList.add('bg-success');
-      success.play();
+    success.play();
     correctCounter++;
   } else {
     document
       .getElementById(answer_selection)
       .parentNode.classList.add('bg-danger');
-      fail.play();
+    fail.play();
     document.getElementById(rightanswer).parentNode.classList.add('bg-success');
   }
-
-  answeredCurrentQuestion = true; // Mark the current question as answered
+  answeredCurrentQuestion = true;
   document.getElementById('next-btn').disabled = false;
 }
 
 function nextQuestion() {
   currentQuestion++;
-  answeredCurrentQuestion = false; // Reset for the next question
+  answeredCurrentQuestion = false;
   document.getElementById('next-btn').disabled = true;
-
   for (let i = 1; i <= 4; i++) {
     document
       .getElementById('answer' + i)
@@ -153,7 +162,6 @@ function nextQuestion() {
       .getElementById('answer' + i)
       .parentNode.classList.remove('bg-danger');
   }
-
   showQuestion();
 }
 
