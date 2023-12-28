@@ -7,7 +7,7 @@ const questions = [
     answer3: '5 zu 1',
     answer4: '15 zu 1',
     correct: 'answer2',
-    img: '/img/sheeps.png',
+    img: './img/sheeps.png',
     bgColor: 'linear-gradient(0deg, #647A6A, #DAEDF0) ',
   },
 
@@ -19,7 +19,7 @@ const questions = [
     answer3: 'England',
     answer4: 'Frankreich',
     correct: 'answer3',
-    img: '/img/cheese.png',
+    img: './img/cheese.png',
     bgColor: 'linear-gradient(0deg, #938630, #4C6728)',
   },
   {
@@ -30,7 +30,7 @@ const questions = [
     answer3: 'Australien',
     answer4: 'Kanada',
     correct: 'answer2',
-    img: '/img/guineapig.png',
+    img: './img/guineapig.png',
     bgColor: 'linear-gradient(0deg, #DDBC94, #E8EDED)',
   },
 
@@ -41,7 +41,7 @@ const questions = [
     answer3: 'Frankreich',
     answer4: 'China',
     correct: 'answer3',
-    img: '/img/timezones.png',
+    img: './img/timezones.png',
     bgColor: 'linear-gradient(-180deg, #9DC3CF, #052B50)',
   },
 
@@ -53,7 +53,7 @@ const questions = [
     answer3: 'Schweiz',
     answer4: 'Schweden',
     correct: 'answer1',
-    img: '/img/holle.png',
+    img: './img/holle.png',
     bgColor: 'linear-gradient(-180deg, #FFF6D3, #BC7536)',
   },
 
@@ -64,15 +64,15 @@ const questions = [
     answer3: 'USA',
     answer4: 'Alle genannten',
     correct: 'answer4',
-    img: '/img/quidditch.png',
+    img: './img/quidditch.png',
     bgColor: 'linear-gradient(-180deg, #73B5D3, #559F5F)',
   },
 ];
 
 let currentQuestion = 0;
 let correctCounter = 0;
-let success = new Audio('audio/success.wav');
-let fail = new Audio('audio/fail.wav');
+let success = new Audio('./audio/success.wav');
+let fail = new Audio('./audio/fail.wav');
 let answeredCurrentQuestion = false; // Variable to track if user has answered the current question
 
 function init() {
