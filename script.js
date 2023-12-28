@@ -18,7 +18,7 @@ const questions = [
     answer4: 'Frankreich',
     correct: 'answer3',
     img: '/img/cheese.png',
-    bgColor: 'linear-gradient(90deg, orange, cyan)',
+    bgColor: 'linear-gradient(0deg, #938630, #4C6728)',
   },
   {
     question: 'In welchem Land dürfen Meerschweinchen nicht alleine gehalten werden?',
@@ -40,7 +40,7 @@ const questions = [
     answer4: 'China',
     correct: 'answer3',
     img: '/img/timezones.png',
-    bgColor: 'linear-gradient(90deg, orange, cyan)',
+    bgColor: 'linear-gradient(-180deg, #9DC3CF, #052B50)',
   },
 
 
@@ -52,7 +52,7 @@ const questions = [
     answer4: 'Schweden',
     correct: 'answer1',
     img: '/img/holle.png',
-    bgColor: 'linear-gradient(90deg, orange, cyan)',
+    bgColor: 'linear-gradient(-180deg, #FFF6D3, #BC7536)',
   },
 
 
@@ -64,7 +64,7 @@ const questions = [
     answer4: 'Alle genannten',
     correct: 'answer4',
     img: '/img/quidditch.png',
-    bgColor: 'linear-gradient(90deg, orange, cyan)',
+    bgColor: 'linear-gradient(-180deg, #73B5D3, #559F5F)',
   },
 
 
